@@ -301,8 +301,26 @@ public class ElementUtil
 	}
 	return element;
 } 
-	//*****
-
+	//*****Calendar*****************
+	public void selectDate(String day) {
+		driver.findElement(By.xpath("//a[text()='"+day+"']")).click();
+	}
+	
+	public void selectDate(String day, By locator) {
+		List<WebElement> dateList = driver.findElements(locator);
+		System.out.println(dateList.size());
+		
+		for(WebElement e : dateList) {
+			
+			String date = e.getText();
+			//System.out.println(date);
+			if(date.equals(day)) {
+				e.click();
+				break;
+			}
+		}
+	}
+//******
 }
 
 
